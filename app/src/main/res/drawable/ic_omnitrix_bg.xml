@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Outer ring deep tech dark metallic circle -->
+    <path
+        android:fillColor="#151618"
+        android:strokeColor="#2F3136"
+        android:strokeWidth="4"
+        android:pathData="M100,100m-92,0a92,92 0,1 1,184 0a92,92 0,1 1,-184 0" />
+    
+    <!-- Inner dial spacer ring -->
+    <path
+        android:fillColor="#0D0E10"
+        android:pathData="M100,100m-78,0a78,78 0,1 1,156 0a78,78 0,1 1,-156 0" />
+
+    <!-- Bright Green glowing tech ring (Omnitrix bright neon theme) -->
+    <path
+        android:strokeColor="#39FF14"
+        android:strokeWidth="5"
+        android:pathData="M100,100m-70,0a70,70 0,1 1,140 0a70,70 0,1 1,-140 0" />
+
+    <!-- Sci-fi Corner indicator triangles -->
+    <!-- Top-Left -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M55,55 L40,55 L55,40 Z" />
+    <!-- Top-Right -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M145,55 L160,55 L145,40 Z" />
+    <!-- Bottom-Left -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M55,145 L40,145 L55,160 Z" />
+    <!-- Bottom-Right -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M145,145 L160,145 L145,160 Z" />
+
+    <!-- Technical center ticks -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M100,20 L104,32 L96,32 Z" />
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M100,180 L104,168 L96,168 Z" />
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M20,100 L32,104 L32,96 Z" />
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M180,100 L168,104 L168,96 Z" />
+</vector>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Dial face container -->
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="1"
+        android:pathData="M60,60m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0" />
+
+    <!-- Grey Matter specialized round bulb intelligent head & chin -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M24,54 C24,32 96,32 96,54 C96,71 80,82 80,95 L40,95 C40,82 24,71 24,54 Z" />
+
+    <!-- Big cute outer pupils / eyes -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M42,54m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
+    <path
+        android:fillColor="#000000"
+        android:pathData="M78,54m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
+
+    <!-- Glowing core center points for eyes -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M42,54m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M78,54m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+
+    <!-- Highlights (white iris sparkles) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,52m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M76,52m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+</vector>

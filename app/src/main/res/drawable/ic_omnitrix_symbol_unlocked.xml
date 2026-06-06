@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Central dial background disc -->
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="1.5"
+        android:pathData="M60,60m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0" />
+    
+    <!-- Green hourglass shape upper half -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M22,25 C22,25 98,25 98,25 C98,25 80,50 63,56 C61,57 59,57 57,56 C40,50 22,25 22,25 Z" />
+
+    <!-- Green hourglass shape lower half -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M22,95 C22,95 98,95 98,95 C98,95 80,70 63,64 C61,63 59,63 57,64 C40,70 22,95 22,95 Z" />
+
+    <!-- Hourglass left triangular cut outer wings -->
+    <path
+        android:fillColor="#333333"
+        android:pathData="M18,35 L45,60 L18,85 Z" />
+
+    <!-- Hourglass right triangular cut outer wings -->
+    <path
+        android:fillColor="#333333"
+        android:pathData="M102,35 L75,60 L102,85 Z" />
+
+    <!-- Center metallic rivet/shifter button -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#222222"
+        android:strokeWidth="1"
+        android:pathData="M60,60m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+</vector>

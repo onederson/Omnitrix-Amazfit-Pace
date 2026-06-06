@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center"
+    android:keepScreenOn="true">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_omnitrix_inactive"
+        android:visibility="visible"
+        android:contentDescription="Omnitrix Logo" />
+
+    <LinearLayout
+        android:id="@+id/selection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txt_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif-condensed"
+            android:letterSpacing="0.1"
+            android:text="OMNITRIX ACTIVE"
+            android:textColor="#39FF14"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:layout_gravity="center"
+            android:padding="22dp">
+            <ImageView
+                android:id="@+id/img_omnitrix"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="false"
+                android:contentDescription="Alien Silhouette Selection Dial"
+                android:focusable="false"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txt_alien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="SELECT ALIEN"
+            android:textAllCaps="true"
+            android:textColor="#39FF14"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Swipe left/right to browse\nTap center to transform"
+            android:textColor="#888888"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Dial face container -->
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="1"
+        android:pathData="M60,60m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0" />
+
+    <!-- Heatblast flame face structure -->
+    <!-- Outer flame spike crown -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M60,18 C46,36 42,54 51,72 C46,68 40,58 40,48 C28,66 33,88 56,97 C58,99 62,99 64,97 C87,88 92,66 80,48 C80,58 74,68 69,72 C78,54 74,36 60,18 Z" />
+
+    <!-- Secondary hot flame points -->
+    <path
+        android:fillColor="#155D1E"
+        android:pathData="M60,38 C53,50 51,62 55,73 C50,69 47,64 47,58 C40,70 42,85 55,91 C68,85 70,70 63,58 C63,64 60,69 55,73 C67,62 67,50 60,38 Z" />
+
+    <!-- Two diagnostic energy center points as fiery eyes -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,62 L55,65 L52,65 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M68,62 L65,65 L68,65 Z" />
+</vector>

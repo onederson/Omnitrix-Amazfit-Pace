@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Dial face container -->
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="1"
+        android:pathData="M60,60m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0" />
+
+    <!-- Sharp pointed XLR8 dynamic helmet -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M38,26 L82,26 L96,62 L60,105 L24,62 Z" />
+
+    <!-- Outer visor plates dark accent -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M34,31 C34,31 86,31 86,31 L74,60 L46,60 Z" />
+
+    <!-- Glowing speed chevron lines in the center -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M44,36 L76,36 L60,52 Z" />
+
+    <!-- Base structural speed stripes -->
+    <path
+        android:strokeColor="#39FF14"
+        android:strokeWidth="3"
+        android:pathData="M60,105 L60,111" />
+</vector>

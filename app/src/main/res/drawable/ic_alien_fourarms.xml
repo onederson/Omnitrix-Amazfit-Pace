@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Dial face container -->
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="1"
+        android:pathData="M60,60m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0" />
+
+    <!-- Head and Crown of Four Arms -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M52,22c0,-3.3 2.7,-6 6,-6s6,2.7 6,6s-2.7,6 -6,6s-6,-2.7 -6,-6z" />
+    
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M48,27 C48,27 72,27 72,27 C75,34 78,39 78,39 C78,39 42,39 42,39 C42,39 45,34 48,27 Z" />
+
+    <!-- Upper Set of Strong Arms -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M38,40 C28,45 20,40 20,28 C16,35 15,50 32,58 L42,48 Z" />
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M82,40 C92,45 100,40 100,28 C104,35 105,50 88,58 L78,48 Z" />
+
+    <!-- Lower Set of Strong Arms -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M36,54 C22,64 16,74 18,88 L26,88 C26,78 30,68 40,64 Z" />
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M84,54 C98,64 104,74 102,88 L94,88 C94,78 90,68 80,64 Z" />
+
+    <!-- Main Torso & Girdle -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M42,43 L78,43 L70,95 L50,95 Z" />
+
+    <!-- Cross chest strap highlight (black) -->
+    <path
+        android:strokeColor="#000000"
+        android:strokeWidth="3.5"
+        android:pathData="M60,43 L60,95" />
+</vector>

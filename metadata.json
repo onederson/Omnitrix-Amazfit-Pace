@@ -1,0 +1,6 @@
+{
+  "name": "Omnitrix",
+  "description": "Smartwatch-optimized simulator featuring Ben 10 alien selections, slide gestures, haptic pulses, and glowing active/cooling phases, built for API 22+.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Dial face container -->
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#39FF14"
+        android:strokeWidth="1"
+        android:pathData="M60,60m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0" />
+
+    <!-- Diamond head back crystalline shard -->
+    <path
+        android:fillColor="#155D1E"
+        android:pathData="M60,10 L74,48 L46,48 Z" />
+
+    <!-- Sharp central crystal torso & face structure -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M60,26 L78,60 L60,50 L42,60 Z" />
+
+    <!-- Left sharp crystal wing -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M34,48 L50,92 L28,64 Z" />
+
+    <!-- Right sharp crystal wing -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M86,48 L70,92 L92,64 Z" />
+
+    <!-- Bottom crystal base stem -->
+    <path
+        android:fillColor="#39FF14"
+        android:pathData="M60,50 L72,98 L48,98 Z" />
+</vector>
