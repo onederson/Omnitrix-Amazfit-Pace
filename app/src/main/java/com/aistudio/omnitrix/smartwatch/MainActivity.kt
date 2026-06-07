@@ -33,7 +33,6 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
     private lateinit var vibrator: Vibrator
     private val handler = Handler(Looper.getMainLooper())
 
-    private val aliens = Array(34) { "Alien ${it + 1}" }
     private var currentIndex = 0
     private var assetImages = ArrayList<String>()
     private var downX = 0f
@@ -69,7 +68,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
                 val diffX = upX - downX
                 val diffY = upY - downY
                 Log.d(TAG, "onTouchListener ACTION_UP: downX=$downX, upX=$upX, diffX=$diffX, diffY=$diffY")
-                val maxIndex = if (assetImages.isNotEmpty()) assetImages.size else aliens.size
+                val maxIndex = assetImages.size
                 if (currentState == State.SELECTING && abs(diffX) > abs(diffY) && abs(diffX) > 60) {
                     if (diffX > 0) {
                         currentIndex = if (currentIndex > 0) currentIndex - 1 else maxIndex - 1
@@ -131,19 +130,6 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
                         e.printStackTrace()
                         imgLogo.setImageResource(R.drawable.ic_omnitrix_symbol_locked)
                     }
-                } else {
-                    imgLogo.visibility = View.GONE
-                    selectionLayout.visibility = View.VISIBLE
-                    mainLayout.setBackgroundResource(R.drawable.ic_omnitrix_active)
-                    
-                    if (currentIndex >= aliens.size) {
-                        currentIndex = 0
-                    }
-                    txtAlien.text = aliens[currentIndex]
-                    val resName = "ic_alien_custom_${currentIndex + 1}"
-                    val drawableRes = resources.getIdentifier(resName, "drawable", packageName)
-                    val finalRes = if (drawableRes != 0) drawableRes else R.drawable.ic_omnitrix_symbol_locked
-                    imgOmnitrix.setImageResource(finalRes)
                 }
             }
             State.TRANSFORMED -> {
@@ -198,7 +184,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
         val diffY = e2.y - startY
         Log.d(TAG, "onFling: startX=$startX, e2.x=${e2.x}, diffX=$diffX, velocityX=$velocityX")
         
-        val maxIndex = if (assetImages.isNotEmpty()) assetImages.size else aliens.size
+        val maxIndex = assetImages.size
         if (abs(diffX) > abs(diffY) && abs(diffX) > 50 && abs(velocityX) > 50) {
             if (diffX > 0) {
                 currentIndex = if (currentIndex > 0) currentIndex - 1 else maxIndex - 1
