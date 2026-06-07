@@ -21,6 +21,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
 
     companion object {
         private const val TAG = "Omnitrix"
+        private const val FRAME_DURATION_MS = 100L
     }
 
     private lateinit var txtStatus: TextView
@@ -37,9 +38,10 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
     private var assetImages = ArrayList<String>()
     private var downX = 0f
     private var downY = 0f
+    private var transitionFiles = emptyList<String>()
 
     enum class State {
-        INACTIVE, SELECTING, TRANSFORMED, LOCKED
+        INACTIVE, TRANSITIONING, SELECTING, TRANSFORMED, LOCKED
     }
     private var currentState = State.INACTIVE
 
@@ -85,6 +87,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
         }
 
         loadAssetImages()
+        loadTransitionFiles()
         updateUI()
     }
 
@@ -98,6 +101,11 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
             State.INACTIVE -> {
                 mainLayout.setBackgroundColor(Color.BLACK)
                 imgLogo.setImageResource(R.drawable.ic_omnitrix_inactive)
+                imgLogo.visibility = View.VISIBLE
+                selectionLayout.visibility = View.GONE
+            }
+            State.TRANSITIONING -> {
+                mainLayout.setBackgroundColor(Color.BLACK)
                 imgLogo.visibility = View.VISIBLE
                 selectionLayout.visibility = View.GONE
             }
@@ -202,9 +210,10 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
     override fun onSingleTapUp(e: MotionEvent): Boolean {
         when (currentState) {
             State.INACTIVE -> {
-                currentState = State.SELECTING
-                vibrate(100)
-                updateUI()
+                startTransition()
+            }
+            State.TRANSITIONING -> {
+                // animação em andamento — ignora toque
             }
             State.SELECTING -> {
                 transform()
@@ -263,5 +272,56 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    private fun loadTransitionFiles() {
+        transitionFiles = try {
+            val files = assets.list("transition") ?: emptyArray()
+            val imageExts = setOf("png", "jpg", "jpeg", "bmp", "webp")
+            files.filter { it.substringAfterLast('.', "").lowercase() in imageExts }
+                .sortedWith { a, b ->
+                    val na = a.substringBeforeLast('.').toIntOrNull()
+                    val nb = b.substringBeforeLast('.').toIntOrNull()
+                    if (na != null && nb != null) na.compareTo(nb)
+                    else a.compareTo(b, ignoreCase = true)
+                }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error loading transition files", e)
+            emptyList()
+        }
+        Log.d(TAG, "Loaded ${transitionFiles.size} transition frames")
+    }
+
+    private fun startTransition() {
+        if (transitionFiles.isEmpty()) {
+            currentState = State.SELECTING
+            vibrate(100)
+            updateUI()
+            return
+        }
+        currentState = State.TRANSITIONING
+        vibrate(100)
+        updateUI()
+        playTransitionFrame(0)
+    }
+
+    private fun playTransitionFrame(index: Int) {
+        if (currentState != State.TRANSITIONING) return
+        if (index >= transitionFiles.size) {
+            currentState = State.SELECTING
+            updateUI()
+            return
+        }
+        try {
+            val bitmap = assets.open("transition/${transitionFiles[index]}").use {
+                BitmapFactory.decodeStream(it)
+            }
+            if (bitmap != null) imgLogo.setImageBitmap(bitmap)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error loading transition frame $index", e)
+        }
+        handler.postDelayed({
+            playTransitionFrame(index + 1)
+        }, FRAME_DURATION_MS)
     }
 }
