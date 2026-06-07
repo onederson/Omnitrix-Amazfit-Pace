@@ -84,6 +84,11 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
         updateUI()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null)
+    }
+
     private fun updateUI() {
         when (currentState) {
             State.INACTIVE -> {
