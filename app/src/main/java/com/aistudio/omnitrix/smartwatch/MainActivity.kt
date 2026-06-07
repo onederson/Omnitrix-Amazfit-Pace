@@ -14,9 +14,14 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.util.Log
 import kotlin.math.abs
 
 class MainActivity : Activity(), GestureDetector.OnGestureListener {
+
+    companion object {
+        private const val TAG = "Omnitrix"
+    }
 
     private lateinit var txtStatus: TextView
     private lateinit var txtAlien: TextView
@@ -63,7 +68,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
                 val upY = event.y
                 val diffX = upX - downX
                 val diffY = upY - downY
-                android.util.Log.d("Omnitrix", "onTouchListener ACTION_UP: downX=$downX, upX=$upX, diffX=$diffX, diffY=$diffY")
+                Log.d(TAG, "onTouchListener ACTION_UP: downX=$downX, upX=$upX, diffX=$diffX, diffY=$diffY")
                 val maxIndex = if (assetImages.isNotEmpty()) assetImages.size else aliens.size
                 if (currentState == State.SELECTING && abs(diffX) > abs(diffY) && abs(diffX) > 60) {
                     if (diffX > 0) {
@@ -71,7 +76,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
                     } else {
                         currentIndex = if (currentIndex < maxIndex - 1) currentIndex + 1 else 0
                     }
-                    android.util.Log.d("Omnitrix", "Swipe detected: new currentIndex=$currentIndex")
+                    Log.d(TAG, "Swipe detected: new currentIndex=$currentIndex")
                     vibrate(30)
                     updateUI()
                     return@setOnTouchListener true
@@ -100,7 +105,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
             State.SELECTING -> {
                 imgOmnitrix.setBackgroundResource(0)
                 
-                android.util.Log.d("Omnitrix", "updateUI State.SELECTING: currentIndex=$currentIndex, assetImages size=${assetImages.size}")
+                Log.d(TAG, "updateUI State.SELECTING: currentIndex=$currentIndex, assetImages size=${assetImages.size}")
                 if (assetImages.isNotEmpty()) {
                     imgLogo.visibility = View.VISIBLE
                     selectionLayout.visibility = View.GONE
@@ -111,7 +116,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
                     }
                     val currentFileName = assetImages[currentIndex]
                     txtAlien.text = currentFileName.substringBeforeLast('.').uppercase()
-                    android.util.Log.d("Omnitrix", "Loading image full screen: $currentFileName")
+                    Log.d(TAG, "Loading image full screen: $currentFileName")
                     
                     try {
                         val bitmap = assets.open("aliens/$currentFileName").use { stream ->
@@ -191,7 +196,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
         val startY = e1?.y ?: downY
         val diffX = e2.x - startX
         val diffY = e2.y - startY
-        android.util.Log.d("Omnitrix", "onFling: startX=$startX, e2.x=${e2.x}, diffX=$diffX, velocityX=$velocityX")
+        Log.d(TAG, "onFling: startX=$startX, e2.x=${e2.x}, diffX=$diffX, velocityX=$velocityX")
         
         val maxIndex = if (assetImages.isNotEmpty()) assetImages.size else aliens.size
         if (abs(diffX) > abs(diffY) && abs(diffX) > 50 && abs(velocityX) > 50) {
@@ -200,7 +205,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
             } else {
                 currentIndex = if (currentIndex < maxIndex - 1) currentIndex + 1 else 0
             }
-            android.util.Log.d("Omnitrix", "onFling triggered: new currentIndex=$currentIndex")
+            Log.d(TAG, "onFling triggered: new currentIndex=$currentIndex")
             vibrate(30)
             updateUI()
             return true
@@ -241,7 +246,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
     override fun onDown(e: MotionEvent): Boolean {
         downX = e.x
         downY = e.y
-        android.util.Log.d("Omnitrix", "onDown: downX=$downX, downY=$downY")
+        Log.d(TAG, "onDown: downX=$downX, downY=$downY")
         return true
     }
     override fun onShowPress(e: MotionEvent) {}
@@ -267,7 +272,7 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
                     }
                 }
                 assetImages.addAll(filteredFiles)
-                android.util.Log.d("Omnitrix", "Loaded ${assetImages.size} images from assets/aliens")
+                Log.d(TAG, "Loaded ${assetImages.size} images from assets/aliens")
             }
         } catch (e: Exception) {
             e.printStackTrace()
