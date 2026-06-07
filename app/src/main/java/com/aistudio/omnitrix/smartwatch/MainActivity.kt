@@ -109,14 +109,14 @@ class MainActivity : Activity(), GestureDetector.OnGestureListener {
                     android.util.Log.d("Omnitrix", "Loading image full screen: $currentFileName")
                     
                     try {
-                        val inputStream = assets.open("aliens/$currentFileName")
-                        val bitmap = BitmapFactory.decodeStream(inputStream)
+                        val bitmap = assets.open("aliens/$currentFileName").use { stream ->
+                            BitmapFactory.decodeStream(stream)
+                        }
                         if (bitmap != null) {
                             imgLogo.setImageBitmap(bitmap)
                         } else {
                             imgLogo.setImageResource(R.drawable.ic_omnitrix_symbol_locked)
                         }
-                        inputStream.close()
                     } catch (e: Exception) {
                         e.printStackTrace()
                         imgLogo.setImageResource(R.drawable.ic_omnitrix_symbol_locked)
